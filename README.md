@@ -26,3 +26,12 @@ git init
 dvc init 
 
 dvc add remote_data/winequalityN.csv 
+
+git add . 
+
+git commit -m "First Commit" 
+
+"""
+After running dvc add remote_data/winequalityN.csv, .gitignore file is created once initialized and it is not uploading the csv file instead keeping the version of it md5  checksome format...!!! naming it's size and where it is located now. 
+
+""" 
