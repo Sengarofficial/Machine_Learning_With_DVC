@@ -1,0 +1,19 @@
+schema: '2.0'
+stages:
+  load_data:
+    cmd: python C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\src\load_data.py
+      --config=params.yaml
+    deps:
+    - path: remote_data\winequalityN.csv
+      md5: 3828b64bb302d42491d5d0952ebb0416
+      size: 421188
+    - path: src\get_data.py
+      md5: 3269de280ab92427aa2d4d20baba5937
+      size: 941
+    - path: src\load_data.py
+      md5: 6e440fd434ff4caf36ec4c73faebf6d5
+      size: 874
+    outs:
+    - path: data\raw\winequality.csv
+      md5: 3828b64bb302d42491d5d0952ebb0416
+      size: 421188

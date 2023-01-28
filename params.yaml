@@ -7,7 +7,7 @@ data_source:
   s3_source: C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\remote_data\winequalityN.csv
 
 load_data:
-  raw_dataset_csv: data/raw/winequality.csv
+  raw_dataset_csv: C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\raw/winequality.csv
 
 split_data:
   train_path: data/processed/train_winequality.csv

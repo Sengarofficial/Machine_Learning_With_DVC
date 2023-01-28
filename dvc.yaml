@@ -1,4 +1,11 @@
 # we will talk about the stages we are going to implement like 1st stage , second stage 
 
 stages:
-  
+  load_data:
+    cmd: python C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\src\load_data.py --config=params.yaml
+    deps:
+    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\src\get_data.py
+    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\src\load_data.py
+    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\remote_data\winequalityN.csv
+    outs:
+    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\raw\winequality.csv
