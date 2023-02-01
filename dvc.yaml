@@ -9,3 +9,14 @@ stages:
     - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\remote_data\winequalityN.csv
     outs:
     - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\raw\winequality.csv
+
+
+  
+  split_data:
+    cmd: python C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\src\split_data.py --config=params.yaml
+    deps:
+    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\src\split_data.py
+    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\raw\winequality.csv
+    outs:
+    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\processed/train_winequality.csv
+    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\processed/test_winequality.csv

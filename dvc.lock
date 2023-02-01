@@ -17,3 +17,20 @@ stages:
     - path: data\raw\winequality.csv
       md5: 3828b64bb302d42491d5d0952ebb0416
       size: 421188
+  split_data:
+    cmd: python C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\src\split_data.py
+      --config=params.yaml
+    deps:
+    - path: data\raw\winequality.csv
+      md5: 3828b64bb302d42491d5d0952ebb0416
+      size: 421188
+    - path: src\split_data.py
+      md5: e7c962d591ced08adfa96a2029d99c32
+      size: 1103
+    outs:
+    - path: data\processed\test_winequality.csv
+      md5: d30b320d920545a0b78dbd3e5eb603e6
+      size: 84381
+    - path: data\processed\train_winequality.csv
+      md5: 7d65d403db2db48c3054888a66a47fa3
+      size: 336959

@@ -10,8 +10,8 @@ load_data:
   raw_dataset_csv: C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\raw/winequality.csv
 
 split_data:
-  train_path: data/processed/train_winequality.csv
-  test_path: data/processed/test_winequality.csv
+  train_path: C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\processed/train_winequality.csv
+  test_path: C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\processed/test_winequality.csv
   test_size: 0.2
 
 estimators:
@@ -21,7 +21,7 @@ estimators:
       l1_ratio: 0.89
       # alpha: 0.9
       # l1_ratio: 0.4
-model_dir: saved_models
+model_dir: C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\saved_models
 
 # reports:
   # params: report/params.json
