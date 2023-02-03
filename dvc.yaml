@@ -1,22 +1,35 @@
-# we will talk about the stages we are going to implement like 1st stage , second stage 
-
 stages:
   load_data:
-    cmd: python C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\src\load_data.py --config=params.yaml
+    cmd: python src/load_data.py --config=params.yaml
     deps:
-    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\src\get_data.py
-    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\src\load_data.py
-    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\remote_data\winequalityN.csv
+    - src/get_data.py
+    - src/load_data.py
+    - data_given/winequalityN.csv
     outs:
-    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\raw\winequality.csv
+    - data/raw/winequalityN.csv
 
-
-  
   split_data:
-    cmd: python C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\src\split_data.py --config=params.yaml
+    cmd: python src/split_data.py --config=params.yaml
     deps:
-    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\src\split_data.py
-    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\raw\winequality.csv
+    - src/split_data.py
+    - data/raw/winequalityN.csv
     outs:
-    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\processed/train_winequality.csv
-    - C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\processed/test_winequality.csv
+    - data/processed/train_winequalityN.csv
+    - data/processed/test_winequalityN.csv 
+
+  train_and_evaluate:
+    cmd: python src/train_and_evaluate.py --config=params.yaml
+    deps:
+    - data/processed/train_winequalityN.csv
+    - data/processed/test_winequalityN.csv 
+    - src/train_and_evaluate.py
+    params:
+    - estimators.ElasticNet.params.alpha
+    - estimators.ElasticNet.params.l1_ratio
+    metrics:
+    - report/scores.json:
+        cache: false
+    - report/params.json:
+        cache: false
+    outs:
+    - saved_models/model.joblib

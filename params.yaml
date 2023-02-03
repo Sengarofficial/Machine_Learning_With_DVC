@@ -4,27 +4,27 @@ base:
   target_col: TARGET
 
 data_source:
-  s3_source: C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\remote_data\winequalityN.csv
+  s3_source: data_given/winequalityN.csv
 
 load_data:
-  raw_dataset_csv: C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\raw/winequality.csv
+  raw_dataset_csv: data/raw/winequalityN.csv
 
 split_data:
-  train_path: C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\processed/train_winequality.csv
-  test_path: C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\data\processed/test_winequality.csv
+  train_path: data/processed/train_winequalityN.csv
+  test_path: data/processed/test_winequalityN.csv
   test_size: 0.2
 
 estimators:
   ElasticNet:
     params:
-      alpha: 0.88
-      l1_ratio: 0.89
-      # alpha: 0.9
-      # l1_ratio: 0.4
-model_dir: C:\Users\admin\Desktop\Machine_Learning_With_Mlops\Mlops\saved_models
+      # alpha: 0.88
+      # l1_ratio: 0.89
+      alpha: 0.9
+      l1_ratio: 0.4
+model_dir: saved_models
 
-# reports:
-  # params: report/params.json
-  # scores: report/scores.json
+reports:
+  params: report/params.json
+  scores: report/scores.json
 
-# webapp_model_dir: prediction_service/model/model.joblib
+webapp_model_dir: prediction_service/model/model.joblib
